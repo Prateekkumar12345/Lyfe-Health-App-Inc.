@@ -53,7 +53,7 @@ A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused 
 | **GitHub Copilot-style inline AI** | Boilerplate for React components, Tailwind class patterns, and TypeScript types during iterative edits. |
 | **Vercel (deployment)** | Hosting the production build; deployment logs used to verify build success. |
 
-*Note: No Figma AI or Framer was used in this build. Design was implemented directly in code with Tailwind, informed by the reference Vercel prototype and cpacanada.ca content structure.*
+
 
 ---
 
@@ -77,14 +77,5 @@ A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused 
 | **Proactive nudges** | “You have 6 PD hours left” banners driven by member profile API | Higher compliance and engagement |
 | **Tax 360™ copilot** | Firm-facing agent with RAG over tax guidance (with guardrails) | Saves practitioner research time |
 
----
 
-## Disclaimer
 
-This is a **student / concept redesign** for demonstrating UX and AI integration ideas. CPA Canada® is a registered trademark of its respective owner. This repository is not officially endorsed by CPA Canada.
-
----
-
-## License
-
-MIT — for educational and portfolio use only.
