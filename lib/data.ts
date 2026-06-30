@@ -104,7 +104,7 @@ export const elevateCards = [
   {
     title: 'The ONE 2026',
     desc: "Unite with Canada's top finance and accounting professionals from October 5–7 in Québec City.",
-    image: 'https://images.unsplash.com/photo-1475727097780-ee8c57052de2?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80',
     href: '#elevate',
   },
   {

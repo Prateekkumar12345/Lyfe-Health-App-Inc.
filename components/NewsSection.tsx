@@ -5,59 +5,100 @@ import { FadeIn, ArrowIcon } from '@/components/FadeIn';
 import { newsItems } from '@/lib/data';
 
 export default function NewsSection() {
-  return (
-    <section id="news" className="section-pad py-16 sm:py-24">
-      <FadeIn>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-4">
-          <div>
-            <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Latest</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mt-2">
-              In the news
-            </h2>
-          </div>
-          <a
-            href="#news"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-black/50 hover:text-black transition-colors px-4 py-2 rounded-xl bg-white border border-black/5 hover:shadow-sm"
-          >
-            View all articles
-            <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-        </div>
-      </FadeIn>
+  const [lead, ...more] = newsItems;
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {newsItems.map((item, i) => (
-          <FadeIn key={item.title} delay={i * 80}>
-            <a href={item.href} className="group block h-full">
-              <div className="relative h-full rounded-2xl overflow-hidden bg-white border border-black/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                <div className="relative h-48 overflow-hidden">
+  return (
+    <section id="news" className="bg-brand-cream">
+      <div className="section-pad py-16 sm:py-24">
+        <FadeIn>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-14">
+            <div className="max-w-xl">
+              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 border-l-[3px] border-slate-800 pl-3">
+                Insights
+              </p>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight text-black mt-4 leading-tight">
+                What CPAs
+                <span className="block font-light text-black/55">are reading now</span>
+              </h2>
+            </div>
+            <a
+              href="#news"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-black transition-colors px-5 py-3 rounded-xl bg-white border border-black/10 hover:border-black/20 shadow-sm"
+            >
+              Browse all stories
+              <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </FadeIn>
+
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Lead story — tall image panel */}
+          <FadeIn className="lg:col-span-7" delay={60}>
+            <a href={lead.href} className="group block h-full">
+              <article className="h-full rounded-2xl overflow-hidden border border-black/8 bg-white shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+                <div className="relative h-64 sm:h-80 lg:h-[22rem] shrink-0">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={lead.image}
+                    alt={lead.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    priority
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="text-xs font-medium bg-white/90 backdrop-blur-sm text-black px-2.5 py-1 rounded-full">
-                      {item.tag}
-                    </span>
-                  </div>
+                  <span className="absolute top-4 left-4 text-xs font-semibold bg-white/95 text-slate-800 px-3 py-1.5 rounded-lg shadow-sm">
+                    {lead.tag}
+                  </span>
                 </div>
-                <div className="p-5 sm:p-6">
-                  <h3 className="text-black font-bold text-lg mb-2 leading-snug group-hover:text-blue-600 transition-colors">
-                    {item.title}
+                <div className="p-6 sm:p-8 flex flex-col flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-black leading-snug mb-3 group-hover:text-slate-700 transition-colors">
+                    {lead.title}
                   </h3>
-                  <p className="text-black/50 text-sm leading-relaxed">{item.desc}</p>
-                  <div className="mt-4 flex items-center gap-1.5 text-sm text-blue-600 font-medium">
-                    Read story
-                    <ArrowIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  <p className="text-black/50 text-sm sm:text-base leading-relaxed flex-1">{lead.desc}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                    Read full story
+                    <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
-              </div>
+              </article>
             </a>
           </FadeIn>
-        ))}
+
+          {/* Side stack — thumbnail + text rows */}
+          <div className="lg:col-span-5 flex flex-col gap-4 sm:gap-5">
+            {more.map((item, i) => (
+              <FadeIn key={item.title} delay={140 + i * 80}>
+                <a href={item.href} className="group block h-full">
+                  <article className="h-full rounded-2xl overflow-hidden border border-black/8 bg-white shadow-sm hover:shadow-lg transition-all duration-500 flex flex-row min-h-[140px]">
+                    <div className="relative w-[38%] sm:w-[42%] min-w-[120px] shrink-0">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                        sizes="180px"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center p-4 sm:p-5 flex-1 min-w-0">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                        {item.tag}
+                      </span>
+                      <h3 className="text-sm sm:text-base font-bold text-black leading-snug mb-1.5 line-clamp-2 group-hover:text-slate-700 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-black/45 text-xs sm:text-sm leading-relaxed line-clamp-2 hidden sm:block">
+                        {item.desc}
+                      </p>
+                      <span className="mt-2 sm:mt-3 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-slate-700">
+                        Read
+                        <ArrowIcon className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
+                  </article>
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
