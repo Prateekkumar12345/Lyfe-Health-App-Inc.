@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-brand-cream text-brand-ink font-sans antialiased;
+    @apply bg-brand-cream text-brand-ink font-sans antialiased overflow-x-clip;
   }
   ::selection {
     @apply bg-blue-200 text-blue-900;

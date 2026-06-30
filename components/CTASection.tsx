@@ -4,42 +4,47 @@ import { FadeIn } from '@/components/FadeIn';
 
 export default function CTASection() {
   return (
-    <>
-      <div className="relative -mb-1">
-        <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="w-full h-[60px] sm:h-[80px] lg:h-[120px]">
-          <path d="M0 60C240 120 480 0 720 60C960 120 1200 0 1440 60V120H0V60Z" fill="#0A0A0F" />
-        </svg>
-      </div>
-      <section id="join-cta" className="bg-brand-ink">
-        <div className="section-pad py-16 sm:py-24">
-          <FadeIn>
-            <div className="text-center max-w-3xl mx-auto">
-              <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest">Get started</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mt-3 mb-4">
-                Ready to become a
-                <br className="hidden sm:block" /> CPA Canada member?
+    <section id="join-cta" className="bg-brand-ink border-t border-white/10">
+      <div className="section-pad py-14 sm:py-20">
+        <FadeIn>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="text-left">
+              <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-400 mb-4">
+                Membership
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Find the membership path
+                <span className="block font-light text-white/70 mt-1">that fits your career stage</span>
               </h2>
-              <p className="text-white/40 text-base sm:text-lg max-w-xl mx-auto mb-8">
-                Join over 220,000 accounting professionals who rely on CPA Canada for resources, advocacy, and community.
+              <p className="text-white/45 text-base sm:text-lg mt-4 max-w-md leading-relaxed">
+                Compare tiers, explore benefits, or take our 30-second quiz to see which option matches your goals.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="#membership"
-                  className="bg-blue-600 text-white px-8 py-3.5 rounded-xl font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto text-center"
-                >
-                  Join CPA Canada
-                </a>
-                <a
-                  href="#become-cpa"
-                  className="text-white/60 hover:text-white px-8 py-3.5 rounded-xl font-medium border border-white/10 hover:border-white/20 transition-all w-full sm:w-auto text-center"
-                >
-                  Learn more
-                </a>
-              </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
-    </>
+
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4">
+              <a
+                href="#membership"
+                className="flex-1 bg-white text-brand-ink px-6 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-colors text-center"
+              >
+                Compare membership tiers
+              </a>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-membership-quiz'))}
+                className="flex-1 text-white px-6 py-4 rounded-xl font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition-colors text-center"
+              >
+                Take the 30-second quiz
+              </button>
+              <a
+                href="#become-cpa"
+                className="text-sm text-white/50 hover:text-white/80 text-center sm:text-left lg:text-center transition-colors"
+              >
+                Learn about CPA certification →
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
   );
 }

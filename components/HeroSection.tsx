@@ -42,24 +42,21 @@ export default function HeroSection() {
 
       <div className="section-pad">
         <FadeIn>
-          <div className="flex flex-col gap-2 mb-8 sm:mb-12">
-            <span className="inline-flex items-center gap-2 text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              Chartered Professional Accountants of Canada
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] text-black max-w-4xl">
-              Empowering Canada&apos;s
-              <br />
-              <span className="relative inline-block">
-                <span className="relative z-10 text-blue-600">financial leaders</span>
-                <span className="absolute left-0 right-0 bottom-1 h-3 bg-blue-100/50 -skew-x-6 rounded-sm" />
-                <span className="absolute left-0 right-0 bottom-0.5 h-0.5 bg-blue-400/60 rounded-full" />
+          <div className="flex flex-col gap-4 mb-8 sm:mb-12 max-w-4xl">
+            <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-black/45 border-l-[3px] border-violet-600 pl-3">
+              National CPA institute · Canada
+            </p>
+            <h1 className="text-[2rem] sm:text-5xl lg:text-[3.25rem] leading-[1.12] tracking-tight">
+              <span className="block font-light text-black/80 mb-1 sm:mb-2">
+                Advancing trust, integrity &amp;
               </span>
-              of tomorrow
+              <span className="block font-extrabold bg-gradient-to-br from-slate-900 via-blue-800 to-violet-700 bg-clip-text text-transparent">
+                the next generation of finance leaders
+              </span>
             </h1>
-            <p className="text-base sm:text-lg text-black/50 max-w-2xl mt-2 leading-relaxed">
-              CPA Canada represents more than 220,000 professional accountants — shaping the future of business,
-              sustainability, and public trust.
+            <p className="text-base sm:text-lg text-black/55 max-w-2xl leading-relaxed border-t border-black/8 pt-4">
+              More than 220,000 CPAs rely on our resources, advocacy, and community to strengthen business,
+              sustainability, and public confidence across the country.
             </p>
           </div>
         </FadeIn>
