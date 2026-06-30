@@ -28,25 +28,7 @@ A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused 
 | Images | Unsplash (remote via `next/image`) |
 | Deploy | Vercel-ready |
 
----
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Production build
-npm run build
-npm start
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
 
 ## Project Structure
 
