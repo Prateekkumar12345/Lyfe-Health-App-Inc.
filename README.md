@@ -1,6 +1,6 @@
 # CPA Canada — Redesigned Experience
 
-A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused on improved UX, navigation, membership clarity, and AI-assisted member support. Built as an internship / concept project — **not affiliated with CPA Canada**.
+A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused on improved UX, navigation, membership clarity, and AI-assisted member support.
 
 
 ---
