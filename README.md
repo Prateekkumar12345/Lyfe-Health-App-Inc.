@@ -2,7 +2,6 @@
 
 A Next.js prototype redesign of [CPA Canada](https://www.cpacanada.ca/) focused on improved UX, navigation, membership clarity, and AI-assisted member support. Built as an internship / concept project — **not affiliated with CPA Canada**.
 
-**Live demo:** [cpa-canada.vercel.app](https://cpa-canada.vercel.app/) (if deployed)
 
 ---
 
