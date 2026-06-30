@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-brand-cream text-brand-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-blue-200 text-blue-900;
+  }
+}
+
+@layer utilities {
+  .section-pad {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+  .card-lift {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200/30 hover:ring-1 hover:ring-blue-500/10;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

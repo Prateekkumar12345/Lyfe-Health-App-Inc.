@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPA Canada — Redesigned Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <div class="proto-banner">
+    <span>Prototype redesign — built to demonstrate UX, navigation &amp; AI-personalization improvements over <strong>cpacanada.ca</strong></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#1a2f4a"/><text x="20" y="26" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="DM Sans,sans-serif">CPA</text></svg>
+        </div>
+        <div class="brand-text">
+          <strong>CPA Canada</strong>
+          <span>Chartered Professional Accountants of Canada</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">☰</button>
+        <ul id="navMenu">
+          <li><a href="#membership">Become a CPA</a></li>
+          <li><a href="#dashboard" data-nav="dashboard">Member resources</a></li>
+          <li><a href="#news" data-nav="news">News &amp; advocacy</a></li>
+          <li><a href="#resources" data-nav="resources">Find a CPA</a></li>
+          <li><a href="#cpd" data-nav="cpd">PD courses</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-wrap">
+          <label class="sr-only" for="globalSearch">Search the site</label>
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" id="globalSearch" placeholder="Search the site" autocomplete="off" />
+          </div>
+          <div class="search-results" id="searchResults" hidden></div>
+        </div>
+        <button class="btn btn-login" id="signInBtn">Member login</button>
+        <button class="btn btn-join" id="joinBtn">Join CPA Canada</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="persona-bar" id="roleBanner">
+    <div class="persona-inner">
+      <span class="persona-label">Show me content for:</span>
+      <div class="persona-chips" role="group" aria-label="Select your role">
+        <button class="persona-chip active" data-role="member">CPA member</button>
+        <button class="persona-chip" data-role="student">Student / CPA candidate</button>
+        <button class="persona-chip" data-role="public">Employer / public</button>
+        <button class="persona-chip" data-role="firm">Firm / practitioner</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero-section" id="dashboard">
+      <div class="hero-inner">
+        <div class="hero-left reveal">
+          <p class="hero-eyebrow" id="heroEyebrow">Your member dashboard</p>
+          <h1 id="heroTitle">Everything your membership unlocks, in one place</h1>
+          <p class="hero-lead" id="heroSub">No more digging through menus. PD hours, handbooks, advocacy updates, and Tax 360™ — surfaced for you the moment you land.</p>
+          <div class="hero-cta">
+            <button class="btn btn-join btn-lg" data-action="dashboard">Go to my member dashboard</button>
+            <button class="btn btn-outline btn-lg" data-action="cpd">Browse PD courses</button>
+          </div>
+        </div>
+
+        <aside class="reco-panel reveal reveal-delay" id="recoPanel" aria-label="Recommended for you">
+          <div class="reco-header">
+            <span class="reco-label">Recommended for you</span>
+            <span class="reco-live"><span class="pulse"></span> Live</span>
+          </div>
+          <div class="reco-items" id="recoItems"></div>
+        </aside>
+      </div>
+
+      <div class="stats-bar reveal reveal-delay-2" id="statsBar">
+        <div class="stat-item">
+          <span class="stat-num" data-count="220000">220,000+</span>
+          <span class="stat-desc">members nationally</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">1,400+</span>
+          <span class="stat-desc">PD courses on demand</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num highlight">3 min</span>
+          <span class="stat-desc">avg. task completion <em>(was 6+)</em></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="quickActionsTitle">
+      <div class="section-header">
+        <span class="section-tag">Quick access</span>
+        <h2 id="quickActionsTitle">Jump to what you need</h2>
+      </div>
+      <div class="action-grid" id="actionGrid"></div>
+    </section>
+
+    <section class="promo-strip reveal" aria-label="Featured announcements">
+      <div class="promo-track" id="promoTrack"></div>
+    </section>
+
+    <section class="section section-cream reveal" id="membership" aria-labelledby="membershipTitle">
+      <div class="section-header centered">
+        <span class="section-tag">Membership</span>
+        <h2 id="membershipTitle">Choose the path that fits your career</h2>
+        <p>Clear comparison of the April 2026 direct membership model.</p>
+      </div>
+      <div class="tier-grid">
+        <article class="tier-card">
+          <h3>Affiliate</h3>
+          <p class="tier-price">Free</p>
+          <ul>
+            <li>Select national resources &amp; news</li>
+            <li>Unified CPA community voice</li>
+            <li>Independent advocacy</li>
+            <li class="no">No complimentary CPD</li>
+          </ul>
+          <button class="btn btn-outline btn-block">Create free profile</button>
+        </article>
+        <article class="tier-card featured">
+          <span class="tier-badge">Most popular</span>
+          <h3>Member</h3>
+          <p class="tier-price">$200<span>/yr</span></p>
+          <ul>
+            <li>16+ included CPD hours</li>
+            <li>Flexible CPA Canada credits</li>
+            <li>Pivot magazine (digital + print)</li>
+            <li>Tax 360™ access</li>
+            <li>Voting rights on governance</li>
+          </ul>
+          <button class="btn btn-join btn-block">Join as Member</button>
+        </article>
+        <article class="tier-card">
+          <h3>Member Advantage</h3>
+          <p class="tier-price">$1,295<span>/yr</span></p>
+          <ul>
+            <li>20+ CPD hours included</li>
+            <li>Enhanced credits &amp; webinars</li>
+            <li>Tax 360 Advantage + CCH™</li>
+            <li>Best value for full coverage</li>
+          </ul>
+          <button class="btn btn-outline btn-block">Explore Advantage</button>
+        </article>
+      </div>
+      <div class="tier-quiz-cta">
+        <p>Not sure which tier fits?</p>
+        <button class="btn btn-join" id="tierQuizBtn">Take the 30-second quiz →</button>
+      </div>
+    </section>
+
+    <section class="section reveal" id="cpd" aria-labelledby="cpdTitle">
+      <div class="section-header">
+        <span class="section-tag">Professional development</span>
+        <h2 id="cpdTitle">PD courses &amp; learning</h2>
+        <p>Filter by format and topic — find your next session in seconds.</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter PD">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="on-demand">On-demand</button>
+        <button class="filter-chip" data-filter="live">Live</button>
+        <button class="filter-chip" data-filter="tax">Tax</button>
+        <button class="filter-chip" data-filter="assurance">Assurance</button>
+      </div>
+      <div class="cpd-grid" id="cpdGrid"></div>
+    </section>
+
+    <section class="section section-cream reveal" id="resources" aria-labelledby="resourcesTitle">
+      <div class="section-header">
+        <span class="section-tag">Tools &amp; standards</span>
+        <h2 id="resourcesTitle">Key member resources</h2>
+      </div>
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+
+    <section class="section reveal" id="news" aria-labelledby="newsTitle">
+      <div class="section-header">
+        <span class="section-tag">News &amp; advocacy</span>
+        <h2 id="newsTitle">Latest insights</h2>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>CPA Canada</strong>
+        <p>Prototype redesign for internship assignment. Not affiliated with CPA Canada.</p>
+      </div>
+      <div class="footer-cols">
+        <div><h4>Membership</h4><a href="#">Join</a><a href="#">Tiers</a><a href="#">FAQs</a></div>
+        <div><h4>Resources</h4><a href="#">Handbooks</a><a href="#">Tax 360™</a><a href="#">PD</a></div>
+        <div><h4>About</h4><a href="#">Accessibility</a><a href="#">Privacy</a><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Prototype — CPA Canada concept redesign</div>
+  </footer>
+
+  <button class="ai-fab" id="aiFab" aria-label="Open AI assistant">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+
+  <dialog class="ai-panel" id="aiPanel" aria-labelledby="aiPanelTitle">
+    <div class="ai-header">
+      <div>
+        <h2 id="aiPanelTitle">CPA AI Assistant</h2>
+        <p>Ask about membership, PD, Tax 360™, or resources</p>
+      </div>
+      <button class="btn-close" id="aiClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="ai-messages" id="aiMessages" role="log" aria-live="polite"></div>
+    <div class="ai-suggestions" id="aiSuggestions"></div>
+    <form class="ai-input" id="aiForm">
+      <input type="text" id="aiInput" placeholder="e.g. How many PD hours do I get?" autocomplete="off" />
+      <button type="submit" class="btn btn-join">Send</button>
+    </form>
+  </dialog>
+
+  <dialog class="quiz-modal" id="quizModal" aria-labelledby="quizTitle">
+    <div class="quiz-header">
+      <h2 id="quizTitle">Membership path finder</h2>
+      <button class="btn-close" id="quizClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="quiz-body" id="quizBody"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
